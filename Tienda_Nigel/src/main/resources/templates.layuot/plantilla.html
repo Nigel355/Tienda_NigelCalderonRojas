@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
@@ -10,11 +6,111 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        
+        <style>
+            tbody tr:nth-child(odd) {
+                background-color: blue;
+                color: white;
+            }
+
+            tbody tr:nth-child(even) {
+                background-color: black;
+                color: white;
+            }
+
+            body {
+                margin: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+                padding: 90px 20px 0;
+            }
+
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 90px;
+                background-color: #076af0;
+            }
+
+            .logo {
+                font-size: 30px;
+                font-weight: bold;
+                padding: 0 40px;
+                line-height: 90px;
+            }
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                max-width: 992px;
+                margin: 0 auto;
+            }
+
+            .nav-link {
+                color: white;
+                text-decoration: none;    
+            }
+
+            .nav-menu {
+                display: flex;
+                margin-right: 40px;
+                list-style: none;
+            }
+
+            .nav-menu-item {
+                font-size: 18px;
+                margin: 0 10px;
+                line-height: 90px;
+                width: max-content;
+            }
+
+            .nav-menu-link:hover {
+                background-color: #024070;
+                transition: 0.5s;
+            }
+
+            .nav-menu-link {
+                padding: 8px 12px;
+                border-radius: 10px;
+            }
+
+            .aside {
+                position: fixed;
+                top: 20%;
+                left: 0;
+                width: 20%;
+                height: 75%;
+                background-color: aqua;
+            }
+
+            .section {
+                position: fixed;
+                top: 20%;
+                left: 20%;
+                width: 80%;
+                height: 75%;
+                background-color: bisque;
+                overflow-y: scroll;
+            }
+
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 5%;
+                background-color: yellowgreen;
+                text-align: center;
+            }
+        </style>
+        
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>        
     </head>
     <body>
+        
         <header th:fragment="header" class="header">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
                 <div class="container">
@@ -46,3 +142,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </div>
                 </div>
             </section>
+        </header>
+
+        <footer th:fragment="footer" class="bg-info text-white mt-5 p-2">
+            <div class="container">
+                <div class="col">
+                    <p class="lead text-center">
+                        &COPY [[#{plantilla.derechos}]]
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
