@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package Tienda.Web;
-
+package Tienda.dao;
+import Tienda.domain.Categoria;
+import org.springframework.data.jpa.repository.JpaRepository;
 /**
  *
  * @author nigel
  */
-public class Categoria {
-
+public interface CategoriaDao extends JpaRepository <Categoria,Long> {
+    
 }
+ 
