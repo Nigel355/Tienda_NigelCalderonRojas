@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package Tienda.Web;
+package Tienda.service.impl;
 import Tienda.dao.CategoriaDao;
 import Tienda.domain.Categoria;
 import Tienda.service.CategoriaService;
