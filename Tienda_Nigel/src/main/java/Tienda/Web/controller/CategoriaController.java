@@ -4,7 +4,6 @@
  */
 package Tienda.Web.controller;
 
-
 import Tienda.Web.domain.Categoria;
 import Tienda.Web.service.CategoriaService;
 import Tienda.Web.service.impl.CategoriaServiceImpl;
@@ -17,31 +16,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-
 @Controller
-
 @RequestMapping("/categoria")
 public class CategoriaController {
-  
+
     @Autowired
     private CategoriaService categoriaService;
-    
+
+    @Autowired
+    private CategoriaServiceImpl CategoriaService;
+
     @GetMapping("/listado")
     private String listado(Model model) {
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
-        model.addAttribute("totalCategorias",categorias.size());
-        return "/categoria/listado";
-    }
-    
-     @GetMapping("/nuevo")
-    public String categoriaNuevo(Categoria categoria) {
-        return "/categoria/modifica";
+        model.addAttribute("totalCategorias", categorias.size());
+        return "categorias/listado"; 
     }
 
-    @Autowired
-    private CategoriaServiceImpl CategoriaService;
-    
+    @GetMapping("/nuevo")
+    public String categoriaNuevo(Categoria categoria) {
+        return "categorias/modifica"; 
+    }
+
     
 
     @GetMapping("/eliminar/{idCategoria}")
@@ -54,6 +51,6 @@ public class CategoriaController {
     public String categoriaModificar(Categoria categoria, Model model) {
         categoria = categoriaService.getCategoria(categoria);
         model.addAttribute("categoria", categoria);
-        return "/categoria/modifica";
-    }   
+        return "categorias/modifica"; 
+    }
 }

@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
@@ -97,7 +93,12 @@ html xmlns="http://www.w3.org/1999/xhtml"
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-md-3">
+                            <div class="text-center p-2" th:if="${categorias == null or categorias.empty}">
+                                <span>[[#{lista.vacia}]]</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
                         <div class="card text-center bg-success text-white mb-3">
                             <div class="card-body">
                                 <h3>[[#{categoria.total}]]</h3>
