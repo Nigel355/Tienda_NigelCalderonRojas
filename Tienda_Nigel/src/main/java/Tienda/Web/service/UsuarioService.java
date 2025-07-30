@@ -10,6 +10,7 @@ import Tienda.Web.domain.Usuario;
  *
  * @author nigel
  */
+//creacion del contrato de usuario se crean los metodos que quiero utilizar para una futura implementacion
 public interface UsuarioService {
     
     // Se obtiene un listado de usuarios en un List

@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author nigel
  */
+//creacion del dao del rol
 public interface RolDao extends JpaRepository<Rol, Long> {
 
 }

@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author nigel
  */
+//implementacion de los metodos que fueron escritos en el usuario service 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
@@ -78,3 +79,4 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioDao.delete(usuario);
     }
 }
+

@@ -18,13 +18,14 @@ import org.springframework.web.multipart.MultipartFile;
  *
  * @author nigel
  */
+
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
-
+//obtiene la lista de todos los usuarios, mostrando la vista de usuario/listado.html
     @GetMapping("/listado")
     public String listado(Model model) {
         var usuarios = usuarioService.getUsuarios();
@@ -32,22 +33,21 @@ public class UsuarioController {
         model.addAttribute("totalUsuarios", usuarios.size());
         return "/usuario/listado";
     }
-
+//crea un nuevo objeto usuario para el formulario mediante el usuario/modifica.html
     @GetMapping("/nuevo")
     public String usuarioNuevo(Usuario usuario) {
         return "/usuario/modifica";
     }
 
    
-
-   
-
+    
+//busca un usuario por el id y lo elimina
     @GetMapping("/eliminar/{idUsuario}")
     public String usuarioEliminar(Usuario usuario) {
         usuarioService.delete(usuario);
         return "redirect:/usuario/listado";
     }
-
+//busca un usuario por su id para luego modificar el usuario con la misma id para modificarlo
     @GetMapping("/modificar/{idUsuario}")
     public String usuarioModificar(Usuario usuario, Model model) {
         usuario = usuarioService.getUsuario(usuario);
